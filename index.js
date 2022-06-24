@@ -1,3 +1,13 @@
+const body = document.querySelector("body");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "fas fa-heart";
+    heart.style.left = (Math.random() * 100) + "vw";
+    heart.style.animationDuration = (Math.random() * 3) + 2 + "s"
+    body.appendChild(heart);
+}
+
 function amoooor() {
     swal({
             title: "",
@@ -48,7 +58,7 @@ function amoooor() {
                                                                 buttons: true,
                                                             })
                                                             .then((willDelete) => {
-                                                                $("img").show();
+                                                                $("#conteudo").show();
                                                             });
                                                     } else {
                                                         swal("", "não me ama (ￗ﹏ￗ ) (ￗ﹏ￗ ) (ￗ﹏ￗ )", "error");
@@ -63,17 +73,16 @@ function amoooor() {
         });
 }
 
-function testaApi() {
-    $.ajax({
-        url: "https://hackjoy-api.herokuapp.com/",
-        headers: { 'Content-Type': 'application/json' },
-        type: "GET",
-        data: {},
-        success: function(response) {
-            console.log(response)
-        },
-        error: function(response) {
-            console.error(response);
+$("#myheart").on("click", function() {
+    $("#surpresa").show();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+
+    setInterval(createHeart, 100);
+    setInterval(function name(params) {
+        var heartArr = document.querySelectorAll(".fa-heart")
+        if (heartArr.length > 200) {
+            heartArr[0].remove()
         }
-    });
-}
+        //console.log(heartArr);
+    }, 100);
+});

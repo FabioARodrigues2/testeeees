@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Lato:wght@100&display=swap');
+body {
+    background-color: pink;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, rgb(192, 255, 208), rgb(6, 100, 29));
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Fascinate', cursive;
+    font-family: 'Lato', sans-serif;
+}
+
+.heart {
+    background: rgb(0, 255, 115);
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Animation */
+    transform: rotate(-45deg) scale(1);
+    animation: pulse 2s linear infinite;
+}
+
+.heart::after {
+    /* background:blue; */
+    background: inherit;
+    border-radius: 50%;
+    /* To make circle */
+    content: '';
+    position: absolute;
+    /* top: -100px;*/
+    top: -50%;
+    /* Inherit properties of parent */
+    /* left: -100px; */
+    left: 0;
+    height: 100px;
+    width: 100px;
+}
+
+.heart::before {
+    /*  background:green; */
+    background: inherit;
+    border-radius: 50%;
+    /* To make circle */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50%;
+    /* Inherit properties of parent */
+    height: 100px;
+    width: 100px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: rotate(-45deg) scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.3);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+        opacity: 1;
+    }
+}
+
+#conteudo {
+    margin: 75px;
+    width: 75%;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+
+#myheart {
+    appearance: button;
+    background-color: rgb(0, 255, 115);
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: din-round, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+    width: 50%;
+}
+
+#myheart:after {
+    background-clip: padding-box;
+    background-color: rgb(0, 255, 115);
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#myheart:main,
+#myheart:focus {
+    user-select: auto;
+}
+
+#myheart:hover:not(:disabled) {
+    background-color: rgb(7, 158, 75);
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+}
+
+#myheart:disabled {
+    cursor: auto;
+}
+
+#surpresa {
+    display: none;
+}
